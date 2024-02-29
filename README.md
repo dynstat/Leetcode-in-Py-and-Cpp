@@ -1,1 +1,1 @@
-Leetcode solved questions in Python, Cpp.
+Leetcode and some other questions, solved in Python, Cpp.
