@@ -8,7 +8,7 @@ using namespace std;
 
 vector<vector<int>> threeSum(vector<int> &nums)
 {
-    int len = nums.size();
+    int len = (int)nums.size();
     sort(nums.begin(), nums.end());
     // nums vector is sorted
     vector<vector<int>> ans;
