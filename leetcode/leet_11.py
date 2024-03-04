@@ -23,17 +23,30 @@
 
 
 # ``````````````````````````````````````````````````@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+from typing import *
 
 
-def maxArea(height) -> int:
-    height = list(set(height))
-    maximum = max(height)
-    height.remove(maximum)
-    maximum2 = max(height)
-    return maximum2**2
+def maxArea(height: List[int]) -> int:
+    # height = [1,8,6,2,5,4,8,3,7]
+    size = len(height)
+    left = 0
+    right = size - 1
+    max_product = 0
+    while left < right:
+        w = right - left
+        h = min(height[left], height[right])
+        product = w * h
+        max_product = max(product, max_product)
+        if height[left] < height[right]:
+            left += 1
+
+        else:
+            right -= 1
+
+    return max_product
 
 
 if __name__ == "__main__":
-    test_list = [1, 8, 6, 2, 5, 4, 8, 3, 7]
     test_list = [1, 1]
+    test_list = [1, 8, 6, 2, 5, 4, 8, 3, 7]
     print(maxArea(test_list))
