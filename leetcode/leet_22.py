@@ -42,7 +42,7 @@ def generateParenthesis(n: int) -> List[str]:
             ans.append(string)
             print(f"APPENDED - {string}")
             return
-        if lc <= n and rc <= n:
+        if lc < n:
             # string += "("
             # lc += 1
             brack(lc + 1, rc, string + "(", count + 1, "left ")
