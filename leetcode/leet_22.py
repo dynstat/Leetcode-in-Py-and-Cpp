@@ -24,25 +24,35 @@ from typing import List
 
 
 def generateParenthesis(n: int) -> List[str]:
-    lc = n
-    rc = n
+    lc = 0
+    rc = 0
     ans = []
     s = ""
+    count = 0
 
-    def brack(lc, rc, string):
-        if lc <= 0 and rc <= 0:
+    def brack(lc, rc, string, count, type):
+        nonlocal n
+        print("\ncount: ", count, end=" |  ")
+        print("type : ", type, end="  |  ")
+        print("string : ", string, end=f"{(10 - len(string))* " "}|  ")
+        print("lc : ", lc, end="  |  ")
+        print("rc : ", rc, end="  |  ")
+
+        if lc == n and rc == n:
             ans.append(string)
+            print(f"APPENDED - {string}")
             return
-        if lc > 0:
-            string += "("
-            lc -= 1
-            brack(lc, rc, string)
-        if rc > 0:
-            string += ")"
-            rc -= 1
-            brack(lc, rc, string)
+        if lc <= n and rc <= n:
+            # string += "("
+            # lc += 1
+            brack(lc + 1, rc, string + "(", count + 1, "left ")
 
-    brack(lc, rc, s)
+        if rc < lc:
+            # string += ")"
+            # rc += 1
+            brack(lc, rc + 1, string + ")", count + 1, "right")
+
+    brack(lc, rc, s, 0, "START")
     return ans
 
 
