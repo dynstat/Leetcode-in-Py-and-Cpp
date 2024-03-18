@@ -26,9 +26,8 @@
 
 
 def largestRectangleArea(heights):
-    stack = [
-        -1
-    ]  # Initialize stack with a sentinel value to handle empty stack cases easily
+    # Initialize stack with a sentinel value to handle empty stack cases easily
+    stack = [-1]
     max_area = 0  # Initialize max_area to 0. This will hold the maximum area of rectangle found.
 
     # Iterate through each bar in the histogram
