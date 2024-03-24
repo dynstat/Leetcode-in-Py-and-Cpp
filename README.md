@@ -1,6 +1,6 @@
-# Coding Challenges Repository
+# Coding Problems Repository
 
-This repository contains solutions to various coding challenges from platforms like LeetCode. The solutions are implemented in Python and C++.
+This repository contains solutions to various coding problems from platforms like LeetCode. The solutions are implemented in Python and C++.
 
 ## Structure
 
@@ -20,4 +20,4 @@ g++ -o solution leetcode/<filename>.cpp
 ```
 
 ## Contributing
-Feel free to contribute by adding new solutions or improving existing ones. Please ensure your code is well-commented and follows the repository's structure.
+Feel free to contribute by adding new solutions or improving existing ones.
