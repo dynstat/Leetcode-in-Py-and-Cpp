@@ -69,4 +69,5 @@ def findMin(nums: List[int]) -> int:
 
 if __name__ == "__main__":
     nums_test = [5, 1, 2, 3, 4]
+    nums_test = [2, 1]
     print(findMin(nums_test))
