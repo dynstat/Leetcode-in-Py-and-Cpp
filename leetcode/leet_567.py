@@ -56,6 +56,9 @@ def checkInclusion(s1: str, s2: str) -> bool:
 
 
 if __name__ == "__main__":
+    s1 = "ab"
+    s2 = "eidbaooo"
+    print(checkInclusion(s1, s2))
     s1 = "a"
     s2 = "ab"
     print(checkInclusion(s1, s2))
