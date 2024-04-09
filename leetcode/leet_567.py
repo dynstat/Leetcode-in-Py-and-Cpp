@@ -32,6 +32,9 @@ def checkInclusion(s1: str, s2: str) -> bool:
     # s1 = "ab", s2 = "eidbaooo"
     lp = 0
     window_size = len(s1)
+
+    # Initialize the right pointer (rp) to the end of the initial window
+    # The window size is the length of s1, so rp is set to lp + window_size - 1, as the indexing starts from 0
     rp = lp + window_size - 1
 
     hmap1 = defaultdict(lambda: 0)
@@ -41,6 +44,7 @@ def checkInclusion(s1: str, s2: str) -> bool:
         hmap1[ch] += 1
     # hmap1 modified
 
+    # Ensure the window size is exactly the length of s1 and within bounds of s2
     while (rp - lp) == window_size - 1 and rp < len(s2):
         hmap2 = defaultdict(lambda: 0)
         # looping on the new window
