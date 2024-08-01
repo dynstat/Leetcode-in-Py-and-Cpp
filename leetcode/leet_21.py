@@ -65,6 +65,28 @@ class Solution:
         print(id(merged_head.next))
         return merged_head.next
 
+    def rec_mergeTwoLists(
+        self, list1: Optional[ListNode], list2: Optional[ListNode], index=0
+    ) -> Optional[ListNode]:
+
+        if list1 is None:
+            return list2
+        if list2 is None:
+            return list1
+
+        if list1.val <= list2.val:
+            list1.next = self.rec_mergeTwoLists(list1.next, list2, index=index + 1)
+            (
+                print(id(list1)) if index == 0 else None
+            )  #  index is introduced by me to make the print statement to be executed only once
+            return list1
+        else:
+            list2.next = self.rec_mergeTwoLists(list1, list2.next, index=index + 1)
+            (
+                print(id(list2)) if index == 0 else None
+            )  #  index is introduced by me to make the print statement to be executed only once
+            return list2
+
 
 if __name__ == "__main__":
     sol = Solution()
@@ -74,4 +96,5 @@ if __name__ == "__main__":
     list2 = ListNode(1)
     list2.next = ListNode(3)
     list2.next.next = ListNode(4)
-    print(sol.mergeTwoLists(list1, list2))
+    # print(sol.mergeTwoLists(list1, list2))
+    print(sol.rec_mergeTwoLists(list1, list2))
