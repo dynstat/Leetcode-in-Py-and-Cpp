@@ -63,15 +63,14 @@ class Solution:
         for i in range(1, len(all_nodes)):
             # i = 0
             j = len(all_nodes) - i
-            if i == j:
+            if i > j:
                 temp.next = None
                 break
-            if i > j:
+            if i == j:
                 temp.next = all_nodes[i]
                 temp = temp.next
                 temp.next = None
                 break
-            print(i, j)
             temp.next = all_nodes[j]
             temp = temp.next
             temp.next = all_nodes[i]
