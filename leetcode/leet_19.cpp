@@ -39,7 +39,7 @@ public:
     }
 };
 
-void main()
+int main()
 {
     // Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
     ListNode *head = nullptr;
