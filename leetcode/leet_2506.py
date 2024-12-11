@@ -13,11 +13,24 @@ class Solution:
                     count += 1
         return count
 
+    def similarPairs2(self, words: List[str]) -> int:
+        hashmap = {}
+        count = 0
+        for idx, word in enumerate(words):
+            tup = tuple(set(word))
+            if tup not in hashmap:
+                hashmap[tup] = 1
+            else:
+                hashmap[tup] += 1
+        for i, val in hashmap.items():
+            if val > 1:
+                count += val
+        return count
+
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.similarPairs(["aba", "aabb", "abcd", "bac", "aabc"]))
+    print(s.similarPairs2(["aba", "aabb", "abcd", "bac", "aabc"]))
+    print(s.similarPairs2(["aabb", "ab", "ba"]))
 
-# NOTE: Using the hashmap will be the better method.
-# keys can be the tuple of unique pairs and iterating through one loop can determine the counts
-# of existing tuple (of unique chars) or add new ones if not exist in the dictionary/hashmap
+# NOTE: Simply using the hasmap to count the numbers of strings matching the unique tuple wont give the answer, i need to find the each combination of the pairs.
