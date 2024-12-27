@@ -42,9 +42,9 @@ class Solution:
         r = 0
         c = 0
         max_c = 0
-        sl_win = ""
+        # sl_win = ""
         while r < len(s):
-            sl_win = s[l : r + 1]
+            # sl_win = s[l : r + 1]
             val = s[r]
             if val not in hmap:
                 hmap[val] += 1
@@ -62,5 +62,6 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.lengthOfLongestSubstring("aab"))
+    print(sol.lengthOfLongestSubstring("aabbbbbbbcadaaaaa"))
+    print(sol.lengthOfLongestSubstring("pwwkew"))
     print(sol.lengthOfLongestSubstring("abcabcbb"))
