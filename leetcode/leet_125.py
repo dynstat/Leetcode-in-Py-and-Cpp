@@ -7,7 +7,6 @@
 
 # Given a string s, return true if it is a palindrome, or false otherwise.
 
- 
 
 # Example 1:
 
@@ -25,7 +24,7 @@
 # Output: true
 # Explanation: s is an empty string "" after removing non-alphanumeric characters.
 # Since an empty string reads the same forward and backward, it is a palindrome.
- 
+
 
 # Constraints:
 
@@ -33,20 +32,46 @@
 # s consists only of printable ASCII characters.
 
 
-def isPalindrome(s: str):
-        # s = "A man, a plan, a canal: Panama"
-        temp = ''
-        for ch in s:
-            if not ch.isalnum():
-                continue
-            temp += ch.lower()
-        print(temp)    
-        for i in range(len(temp)//2):
-            if temp[i] != temp[len(temp)-1-i]:
-                return False
-        return True  
-    
-    
-isPalindrome("A man, a plan, a canal: Panama")    
+def isPalindrome_slow(s: str):
+    # s = "A man, a plan, a canal: Panama"
+    temp = ""
+    for ch in s:
+        if not ch.isalnum():
+            continue
+        temp += ch.lower()
+    print(temp)
+    for i in range(len(temp) // 2):
+        if temp[i] != temp[len(temp) - 1 - i]:
+            return False
+    return True
+
+
+# isPalindrome_slow("A man, a plan, a canal: Panama")
 
 # NOTE: It can also be easily done using the 2 pointers method
+
+
+def isPalindrome(s: str) -> bool:
+    slen = len(s)
+    l = 0
+    r = slen - 1
+
+    while l < r:
+        # print(f"before- l = {s[l]} at {l}     r = {s[r]} at {r}")
+        while not s[l].isalnum() and l < r:
+            l += 1
+        while not s[r].isalnum() and l < r:
+            r -= 1
+        # print(f"before- l = {s[l]} at {l}     r = {s[r]} at {r}")
+
+        if s[l].lower() != s[r].lower():
+            return False
+        l += 1
+        r -= 1
+    return True
+
+
+isPalindrome(".,")
+isPalindrome("A man, a plan, a canal: Panama")
+isPalindrome("race a car")
+isPalindrome(" ")
