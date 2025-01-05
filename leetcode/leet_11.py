@@ -27,23 +27,25 @@ from typing import *
 
 
 def maxArea(height: List[int]) -> int:
-    # height = [1,8,6,2,5,4,8,3,7]
-    size = len(height)
-    left = 0
-    right = size - 1
-    max_product = 0
-    while left < right:
-        w = right - left
-        h = min(height[left], height[right])
-        product = w * h
-        max_product = max(product, max_product)
-        if height[left] < height[right]:
-            left += 1
+    # two pointers approach
+    l = 0
+    r = len(height) - 1
+    ans = 0
 
+    while l < r:
+        area = (r - l) * min(height[l], height[r])
+        ans = max(ans, area)
+
+        # conditon to move pointers - since out of the current lines, we will keep the one with
+        # the more height and move the pointer for the shorter height line to the next one since,
+        # we need to find the max area, and it makes sense to lose the shorter line instead of
+        # the larger one.
+        if height[l] > height[r]:
+            r -= 1
         else:
-            right -= 1
+            l += 1
 
-    return max_product
+    return ans
 
 
 if __name__ == "__main__":
