@@ -16,11 +16,14 @@ std::vector<int> twoSum(std::vector<int> &nums, int target)
         int c = store.count(remaining_val);
         if (c)
         {
-            // If the complement exists in the map, return the indices
+            // Store the two indices (complement index and current index) in the result vector
             temp = {store[remaining_val], i};
+            // Get runtime type information of temp vector for debugging
             const std::type_info &typeInfo = typeid(temp);
+            // Get the demangled name of the type
             const char *name = typeInfo.name();
-            return temp; // Return the indices as a vector
+            // Return vector containing the two indices that sum to target
+            return temp;
         }
         // Otherwise, store the current number and its index in the map
         store[nums[i]] = i;
